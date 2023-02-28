@@ -3,8 +3,7 @@
   <body/>
   <br/>
   <br/>
-📎:Once I've Used
-  <br/>
+  <p>📎:Once I've Used</p>
   <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
   <img src="https://img.shields.io/badge/C-4479A1?style=for-the-badge&logoColor=white">
   </br>
