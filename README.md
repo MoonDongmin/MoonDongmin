@@ -5,9 +5,9 @@
 ```javascript
 var MoonDongMin = {
     name: 'MoonDongMin',
-    age: 24,
+    age: 25,
     university: 'Hanbat National University',
-    study: ['JavaScript','TypesSript', 'NestJS', 'Java', '...'],
+    study: ['JavaScript','TypesScript', 'NestJS', 'Java', '...'],
     hobby: 'health',
 }
 ```  
