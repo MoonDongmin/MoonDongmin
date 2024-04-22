@@ -7,7 +7,7 @@ const MoonDongMin = {
     name: 'MoonDongMin',
     age: 25,
     university: 'Hanbat National University',
-    study: ['JavaScript','TypesScript', 'NestJS','Node.js', 'Java', '...'],
+    study: ['JavaScript','TypesScript', 'NestJS', 'Node.js', 'Java', '...'],
     tech: 'Node.js',
     hobby: 'health',
 }
