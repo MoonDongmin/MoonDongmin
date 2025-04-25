@@ -28,6 +28,6 @@ const MoonDongMin = {
 ### ⚒️ Tools
 <img src="https://img.shields.io/badge/JetBrains-000000?style=flat&logo=JetBrains&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/WebStorm-000000?style=flat&logo=WebStorm&logoColor=white"/></a>
-<img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=flat&logo=IntelliJ IDEA&logoColor=white"/></a>
-<img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat&logo=Visual Studio Code&logoColor=white"/></a>
+
+
 
