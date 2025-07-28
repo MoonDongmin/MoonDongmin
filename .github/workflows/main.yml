@@ -11,14 +11,21 @@ jobs:
     name: generate-github-profile-3d-contrib
     steps:
       - uses: actions/checkout@v3
+
       - uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.token }}
           USERNAME: ${{ github.repository_owner }}
-      - name: Commit & Push
+
+      - name: Commit & Push only if changed
         run: |
-          git config user.name MoonDongmin
-          git config user.email water_8760@naver.com
-          git add -A .
-          git commit -m "generated"
-          git push
+          git config user.name "MoonDongmin"
+          git config user.email "water_8760@naver.com"
+
+          if [[ `git status --porcelain` ]]; then
+            git add -A
+            git commit -m "update: 3D contribution graph updated"
+            git push
+          else
+            echo "✅ No changes detected. Skipping commit."
+          fi
