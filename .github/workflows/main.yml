@@ -1,7 +1,7 @@
 name: GitHub-Profile-3D-Contrib
 
 on:
-  schedule: # 03:00 JST == 18:00 UTC
+  schedule:
     - cron: "0 18 * * *"
   workflow_dispatch:
 
@@ -10,14 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     name: generate-github-profile-3d-contrib
     steps:
+      - name: Check today's contributions
+        id: check
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          CONTRIBUTIONS=$(curl -s "https://github-contributions-api.jogruber.de/v4/${{ github.repository_owner }}?y=$(date +%Y)" | jq --arg date "$TODAY" '[.contributions[] | select(.date == $date) | .count] | add // 0')
+          echo "count=$CONTRIBUTIONS" >> $GITHUB_OUTPUT
+          echo "오늘 기여 수: $CONTRIBUTIONS"
+
       - uses: actions/checkout@v3
+        if: steps.check.outputs.count != '0' || github.event_name == 'workflow_dispatch'
 
       - uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        if: steps.check.outputs.count != '0' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.token }}
           USERNAME: ${{ github.repository_owner }}
 
       - name: Commit & Push only if changed
+        if: steps.check.outputs.count != '0' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "MoonDongmin"
           git config user.email "water_8760@naver.com"
@@ -30,14 +41,12 @@ jobs:
             echo "✅ No changes detected. Skipping commit."
           fi
 
-
-
           
 # name: GitHub-Profile-3D-Contrib
 
 # on:
-#   schedule:
-#     - cron: "0 18 * * *" 
+#   schedule: # 03:00 JST == 18:00 UTC
+#     - cron: "0 18 * * *"
 #   workflow_dispatch:
 
 # jobs:
@@ -52,6 +61,15 @@ jobs:
 #           GITHUB_TOKEN: ${{ secrets.token }}
 #           USERNAME: ${{ github.repository_owner }}
 
-      
-#       - name: Skip Commit & Push
-#         run: echo "⏭ 자동 커밋을 비활성화했습니다. 파일은 변경되었지만 푸시하지 않습니다."
+#       - name: Commit & Push only if changed
+#         run: |
+#           git config user.name "MoonDongmin"
+#           git config user.email "water_8760@naver.com"
+
+#           if [[ `git status --porcelain` ]]; then
+#             git add -A
+#             git commit -m "update: 3D contribution graph updated"
+#             git push
+#           else
+#             echo "✅ No changes detected. Skipping commit."
+#           fi
