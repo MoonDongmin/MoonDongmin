@@ -7,7 +7,7 @@ const MoonDongMin = {
     name: 'MoonDongMin',
     age: 26,
     university: 'Hanbat National University',
-    study: ['JavaScript','TypesScript', 'NestJS', 'Node.js', 'Java', '...'],
+    study: ['TypesScript', 'NestJS', 'Node.js', 'DDD', 'TDD', '...'],
     tech: 'Node.js',
     hobby: 'CrossFit',
 }
@@ -22,6 +22,8 @@ const MoonDongMin = {
 
 ### 💻 Studying...
 <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/DDD-5C2D91?style=flat"/></a>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/></a>
 <br>
 
